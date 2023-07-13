@@ -1,0 +1,693 @@
+{
+    "object": "list",
+    "results": [
+        {
+            "object": "page",
+            "id": "85d2465f-73f1-46bb-ba28-18708eaf95f5",
+            "created_time": "2023-07-13T08:26:00.000Z",
+            "last_edited_time": "2023-07-13T08:26:00.000Z",
+            "created_by": {
+                "object": "user",
+                "id": "3a4f0ad1-3119-4ef4-9db6-2781831156cd"
+            },
+            "last_edited_by": {
+                "object": "user",
+                "id": "3a4f0ad1-3119-4ef4-9db6-2781831156cd"
+            },
+            "cover": null,
+            "icon": null,
+            "parent": {
+                "type": "database_id",
+                "database_id": "458c081d-5515-47e4-96c1-a0bee74763df"
+            },
+            "archived": false,
+            "properties": {
+                "Status": {
+                    "id": "uaEs",
+                    "type": "status",
+                    "status": {
+                        "id": "4c9be7b4-021f-4979-a4fb-ebecf723234b",
+                        "name": "Not started",
+                        "color": "default"
+                    }
+                },
+                "Objective": {
+                    "id": "title",
+                    "type": "title",
+                    "title": [
+                        {
+                            "type": "text",
+                            "text": {
+                                "content": "Clean up after cooking",
+                                "link": null
+                            },
+                            "annotations": {
+                                "bold": false,
+                                "italic": false,
+                                "strikethrough": false,
+                                "underline": false,
+                                "code": false,
+                                "color": "default"
+                            },
+                            "plain_text": "Clean up after cooking",
+                            "href": null
+                        }
+                    ]
+                }
+            },
+            "url": "https://www.notion.so/Clean-up-after-cooking-85d2465f73f146bbba2818708eaf95f5",
+            "public_url": null
+        },
+        {
+            "object": "page",
+            "id": "9c4032cf-da68-4c41-be11-6c1722d0e630",
+            "created_time": "2023-07-13T08:26:00.000Z",
+            "last_edited_time": "2023-07-13T08:26:00.000Z",
+            "created_by": {
+                "object": "user",
+                "id": "3a4f0ad1-3119-4ef4-9db6-2781831156cd"
+            },
+            "last_edited_by": {
+                "object": "user",
+                "id": "3a4f0ad1-3119-4ef4-9db6-2781831156cd"
+            },
+            "cover": null,
+            "icon": null,
+            "parent": {
+                "type": "database_id",
+                "database_id": "458c081d-5515-47e4-96c1-a0bee74763df"
+            },
+            "archived": false,
+            "properties": {
+                "Status": {
+                    "id": "uaEs",
+                    "type": "status",
+                    "status": {
+                        "id": "4c9be7b4-021f-4979-a4fb-ebecf723234b",
+                        "name": "Not started",
+                        "color": "default"
+                    }
+                },
+                "Objective": {
+                    "id": "title",
+                    "type": "title",
+                    "title": [
+                        {
+                            "type": "text",
+                            "text": {
+                                "content": "Cook the meal",
+                                "link": null
+                            },
+                            "annotations": {
+                                "bold": false,
+                                "italic": false,
+                                "strikethrough": false,
+                                "underline": false,
+                                "code": false,
+                                "color": "default"
+                            },
+                            "plain_text": "Cook the meal",
+                            "href": null
+                        }
+                    ]
+                }
+            },
+            "url": "https://www.notion.so/Cook-the-meal-9c4032cfda684c41be116c1722d0e630",
+            "public_url": null
+        },
+        {
+            "object": "page",
+            "id": "caba199c-f749-4457-9135-519ebd9a3692",
+            "created_time": "2023-07-13T08:26:00.000Z",
+            "last_edited_time": "2023-07-13T08:26:00.000Z",
+            "created_by": {
+                "object": "user",
+                "id": "3a4f0ad1-3119-4ef4-9db6-2781831156cd"
+            },
+            "last_edited_by": {
+                "object": "user",
+                "id": "3a4f0ad1-3119-4ef4-9db6-2781831156cd"
+            },
+            "cover": null,
+            "icon": null,
+            "parent": {
+                "type": "database_id",
+                "database_id": "458c081d-5515-47e4-96c1-a0bee74763df"
+            },
+            "archived": false,
+            "properties": {
+                "Status": {
+                    "id": "uaEs",
+                    "type": "status",
+                    "status": {
+                        "id": "4c9be7b4-021f-4979-a4fb-ebecf723234b",
+                        "name": "Not started",
+                        "color": "default"
+                    }
+                },
+                "Objective": {
+                    "id": "title",
+                    "type": "title",
+                    "title": [
+                        {
+                            "type": "text",
+                            "text": {
+                                "content": "Prepare the ingredients",
+                                "link": null
+                            },
+                            "annotations": {
+                                "bold": false,
+                                "italic": false,
+                                "strikethrough": false,
+                                "underline": false,
+                                "code": false,
+                                "color": "default"
+                            },
+                            "plain_text": "Prepare the ingredients",
+                            "href": null
+                        }
+                    ]
+                }
+            },
+            "url": "https://www.notion.so/Prepare-the-ingredients-caba199cf74944579135519ebd9a3692",
+            "public_url": null
+        },
+        {
+            "object": "page",
+            "id": "972e5a22-1ea0-437e-8cc8-f6902424d248",
+            "created_time": "2023-07-13T08:26:00.000Z",
+            "last_edited_time": "2023-07-13T08:26:00.000Z",
+            "created_by": {
+                "object": "user",
+                "id": "3a4f0ad1-3119-4ef4-9db6-2781831156cd"
+            },
+            "last_edited_by": {
+                "object": "user",
+                "id": "3a4f0ad1-3119-4ef4-9db6-2781831156cd"
+            },
+            "cover": null,
+            "icon": null,
+            "parent": {
+                "type": "database_id",
+                "database_id": "458c081d-5515-47e4-96c1-a0bee74763df"
+            },
+            "archived": false,
+            "properties": {
+                "Status": {
+                    "id": "uaEs",
+                    "type": "status",
+                    "status": {
+                        "id": "4c9be7b4-021f-4979-a4fb-ebecf723234b",
+                        "name": "Not started",
+                        "color": "default"
+                    }
+                },
+                "Objective": {
+                    "id": "title",
+                    "type": "title",
+                    "title": [
+                        {
+                            "type": "text",
+                            "text": {
+                                "content": "Go grocery shopping if necessary",
+                                "link": null
+                            },
+                            "annotations": {
+                                "bold": false,
+                                "italic": false,
+                                "strikethrough": false,
+                                "underline": false,
+                                "code": false,
+                                "color": "default"
+                            },
+                            "plain_text": "Go grocery shopping if necessary",
+                            "href": null
+                        }
+                    ]
+                }
+            },
+            "url": "https://www.notion.so/Go-grocery-shopping-if-necessary-972e5a221ea0437e8cc8f6902424d248",
+            "public_url": null
+        },
+        {
+            "object": "page",
+            "id": "49ea23bc-46fe-4b25-9112-9d985d1ced58",
+            "created_time": "2023-07-13T08:26:00.000Z",
+            "last_edited_time": "2023-07-13T08:26:00.000Z",
+            "created_by": {
+                "object": "user",
+                "id": "3a4f0ad1-3119-4ef4-9db6-2781831156cd"
+            },
+            "last_edited_by": {
+                "object": "user",
+                "id": "3a4f0ad1-3119-4ef4-9db6-2781831156cd"
+            },
+            "cover": null,
+            "icon": null,
+            "parent": {
+                "type": "database_id",
+                "database_id": "458c081d-5515-47e4-96c1-a0bee74763df"
+            },
+            "archived": false,
+            "properties": {
+                "Status": {
+                    "id": "uaEs",
+                    "type": "status",
+                    "status": {
+                        "id": "4c9be7b4-021f-4979-a4fb-ebecf723234b",
+                        "name": "Not started",
+                        "color": "default"
+                    }
+                },
+                "Objective": {
+                    "id": "title",
+                    "type": "title",
+                    "title": [
+                        {
+                            "type": "text",
+                            "text": {
+                                "content": "Check for the necessary ingredients",
+                                "link": null
+                            },
+                            "annotations": {
+                                "bold": false,
+                                "italic": false,
+                                "strikethrough": false,
+                                "underline": false,
+                                "code": false,
+                                "color": "default"
+                            },
+                            "plain_text": "Check for the necessary ingredients",
+                            "href": null
+                        }
+                    ]
+                }
+            },
+            "url": "https://www.notion.so/Check-for-the-necessary-ingredients-49ea23bc46fe4b2591129d985d1ced58",
+            "public_url": null
+        },
+        {
+            "object": "page",
+            "id": "50a35d45-ada7-4446-9533-59cbcef046fc",
+            "created_time": "2023-07-13T08:26:00.000Z",
+            "last_edited_time": "2023-07-13T08:26:00.000Z",
+            "created_by": {
+                "object": "user",
+                "id": "3a4f0ad1-3119-4ef4-9db6-2781831156cd"
+            },
+            "last_edited_by": {
+                "object": "user",
+                "id": "3a4f0ad1-3119-4ef4-9db6-2781831156cd"
+            },
+            "cover": null,
+            "icon": null,
+            "parent": {
+                "type": "database_id",
+                "database_id": "458c081d-5515-47e4-96c1-a0bee74763df"
+            },
+            "archived": false,
+            "properties": {
+                "Status": {
+                    "id": "uaEs",
+                    "type": "status",
+                    "status": {
+                        "id": "4c9be7b4-021f-4979-a4fb-ebecf723234b",
+                        "name": "Not started",
+                        "color": "default"
+                    }
+                },
+                "Objective": {
+                    "id": "title",
+                    "type": "title",
+                    "title": [
+                        {
+                            "type": "text",
+                            "text": {
+                                "content": "Decide on the meal recipe",
+                                "link": null
+                            },
+                            "annotations": {
+                                "bold": false,
+                                "italic": false,
+                                "strikethrough": false,
+                                "underline": false,
+                                "code": false,
+                                "color": "default"
+                            },
+                            "plain_text": "Decide on the meal recipe",
+                            "href": null
+                        }
+                    ]
+                }
+            },
+            "url": "https://www.notion.so/Decide-on-the-meal-recipe-50a35d45ada74446953359cbcef046fc",
+            "public_url": null
+        },
+        {
+            "object": "page",
+            "id": "110eab6d-b19c-4e2f-83af-ff6e2a8e1532",
+            "created_time": "2023-07-13T08:08:00.000Z",
+            "last_edited_time": "2023-07-13T08:08:00.000Z",
+            "created_by": {
+                "object": "user",
+                "id": "3a4f0ad1-3119-4ef4-9db6-2781831156cd"
+            },
+            "last_edited_by": {
+                "object": "user",
+                "id": "3a4f0ad1-3119-4ef4-9db6-2781831156cd"
+            },
+            "cover": null,
+            "icon": null,
+            "parent": {
+                "type": "database_id",
+                "database_id": "458c081d-5515-47e4-96c1-a0bee74763df"
+            },
+            "archived": false,
+            "properties": {
+                "Status": {
+                    "id": "uaEs",
+                    "type": "status",
+                    "status": {
+                        "id": "4c9be7b4-021f-4979-a4fb-ebecf723234b",
+                        "name": "Not started",
+                        "color": "default"
+                    }
+                },
+                "Objective": {
+                    "id": "title",
+                    "type": "title",
+                    "title": [
+                        {
+                            "type": "text",
+                            "text": {
+                                "content": "empty todo",
+                                "link": null
+                            },
+                            "annotations": {
+                                "bold": false,
+                                "italic": false,
+                                "strikethrough": false,
+                                "underline": false,
+                                "code": false,
+                                "color": "default"
+                            },
+                            "plain_text": "empty todo",
+                            "href": null
+                        }
+                    ]
+                }
+            },
+            "url": "https://www.notion.so/empty-todo-110eab6db19c4e2f83afff6e2a8e1532",
+            "public_url": null
+        },
+        {
+            "object": "page",
+            "id": "ffcd1368-3cae-4278-8a44-61fe00b84e2f",
+            "created_time": "2023-07-13T08:07:00.000Z",
+            "last_edited_time": "2023-07-13T08:07:00.000Z",
+            "created_by": {
+                "object": "user",
+                "id": "3a4f0ad1-3119-4ef4-9db6-2781831156cd"
+            },
+            "last_edited_by": {
+                "object": "user",
+                "id": "3a4f0ad1-3119-4ef4-9db6-2781831156cd"
+            },
+            "cover": null,
+            "icon": null,
+            "parent": {
+                "type": "database_id",
+                "database_id": "458c081d-5515-47e4-96c1-a0bee74763df"
+            },
+            "archived": false,
+            "properties": {
+                "Status": {
+                    "id": "uaEs",
+                    "type": "status",
+                    "status": {
+                        "id": "4c9be7b4-021f-4979-a4fb-ebecf723234b",
+                        "name": "Not started",
+                        "color": "default"
+                    }
+                },
+                "Objective": {
+                    "id": "title",
+                    "type": "title",
+                    "title": [
+                        {
+                            "type": "text",
+                            "text": {
+                                "content": "Play the Witcher 3",
+                                "link": null
+                            },
+                            "annotations": {
+                                "bold": false,
+                                "italic": false,
+                                "strikethrough": false,
+                                "underline": false,
+                                "code": false,
+                                "color": "default"
+                            },
+                            "plain_text": "Play the Witcher 3",
+                            "href": null
+                        }
+                    ]
+                }
+            },
+            "url": "https://www.notion.so/Play-the-Witcher-3-ffcd13683cae42788a4461fe00b84e2f",
+            "public_url": null
+        },
+        {
+            "object": "page",
+            "id": "90f2b318-1859-47d1-ae08-f3987181b0ec",
+            "created_time": "2023-07-13T07:04:00.000Z",
+            "last_edited_time": "2023-07-13T07:04:00.000Z",
+            "created_by": {
+                "object": "user",
+                "id": "3a4f0ad1-3119-4ef4-9db6-2781831156cd"
+            },
+            "last_edited_by": {
+                "object": "user",
+                "id": "3a4f0ad1-3119-4ef4-9db6-2781831156cd"
+            },
+            "cover": null,
+            "icon": null,
+            "parent": {
+                "type": "database_id",
+                "database_id": "458c081d-5515-47e4-96c1-a0bee74763df"
+            },
+            "archived": false,
+            "properties": {
+                "Status": {
+                    "id": "uaEs",
+                    "type": "status",
+                    "status": {
+                        "id": "4c9be7b4-021f-4979-a4fb-ebecf723234b",
+                        "name": "Not started",
+                        "color": "default"
+                    }
+                },
+                "Objective": {
+                    "id": "title",
+                    "type": "title",
+                    "title": [
+                        {
+                            "type": "text",
+                            "text": {
+                                "content": "Make the bed",
+                                "link": null
+                            },
+                            "annotations": {
+                                "bold": false,
+                                "italic": false,
+                                "strikethrough": false,
+                                "underline": false,
+                                "code": false,
+                                "color": "default"
+                            },
+                            "plain_text": "Make the bed",
+                            "href": null
+                        }
+                    ]
+                }
+            },
+            "url": "https://www.notion.so/Make-the-bed-90f2b318185947d1ae08f3987181b0ec",
+            "public_url": null
+        },
+        {
+            "object": "page",
+            "id": "a25a6567-3b49-4a6a-bef1-ceb26d62ab2d",
+            "created_time": "2023-07-13T07:03:00.000Z",
+            "last_edited_time": "2023-07-13T07:03:00.000Z",
+            "created_by": {
+                "object": "user",
+                "id": "3a4f0ad1-3119-4ef4-9db6-2781831156cd"
+            },
+            "last_edited_by": {
+                "object": "user",
+                "id": "3a4f0ad1-3119-4ef4-9db6-2781831156cd"
+            },
+            "cover": null,
+            "icon": null,
+            "parent": {
+                "type": "database_id",
+                "database_id": "458c081d-5515-47e4-96c1-a0bee74763df"
+            },
+            "archived": false,
+            "properties": {
+                "Status": {
+                    "id": "uaEs",
+                    "type": "status",
+                    "status": {
+                        "id": "4c9be7b4-021f-4979-a4fb-ebecf723234b",
+                        "name": "Not started",
+                        "color": "default"
+                    }
+                },
+                "Objective": {
+                    "id": "title",
+                    "type": "title",
+                    "title": [
+                        {
+                            "type": "text",
+                            "text": {
+                                "content": "Write a poem",
+                                "link": null
+                            },
+                            "annotations": {
+                                "bold": false,
+                                "italic": false,
+                                "strikethrough": false,
+                                "underline": false,
+                                "code": false,
+                                "color": "default"
+                            },
+                            "plain_text": "Write a poem",
+                            "href": null
+                        }
+                    ]
+                }
+            },
+            "url": "https://www.notion.so/Write-a-poem-a25a65673b494a6abef1ceb26d62ab2d",
+            "public_url": null
+        },
+        {
+            "object": "page",
+            "id": "d6469407-8054-4c86-974c-e70ae1d7c762",
+            "created_time": "2023-07-13T07:03:00.000Z",
+            "last_edited_time": "2023-07-13T07:03:00.000Z",
+            "created_by": {
+                "object": "user",
+                "id": "3a4f0ad1-3119-4ef4-9db6-2781831156cd"
+            },
+            "last_edited_by": {
+                "object": "user",
+                "id": "3a4f0ad1-3119-4ef4-9db6-2781831156cd"
+            },
+            "cover": null,
+            "icon": null,
+            "parent": {
+                "type": "database_id",
+                "database_id": "458c081d-5515-47e4-96c1-a0bee74763df"
+            },
+            "archived": false,
+            "properties": {
+                "Status": {
+                    "id": "uaEs",
+                    "type": "status",
+                    "status": {
+                        "id": "4c9be7b4-021f-4979-a4fb-ebecf723234b",
+                        "name": "Not started",
+                        "color": "default"
+                    }
+                },
+                "Objective": {
+                    "id": "title",
+                    "type": "title",
+                    "title": [
+                        {
+                            "type": "text",
+                            "text": {
+                                "content": "Play guitar",
+                                "link": null
+                            },
+                            "annotations": {
+                                "bold": false,
+                                "italic": false,
+                                "strikethrough": false,
+                                "underline": false,
+                                "code": false,
+                                "color": "default"
+                            },
+                            "plain_text": "Play guitar",
+                            "href": null
+                        }
+                    ]
+                }
+            },
+            "url": "https://www.notion.so/Play-guitar-d646940780544c86974ce70ae1d7c762",
+            "public_url": null
+        },
+        {
+            "object": "page",
+            "id": "62850f68-affc-4d70-9307-987c3f3ffbee",
+            "created_time": "2023-07-12T12:38:00.000Z",
+            "last_edited_time": "2023-07-12T12:45:00.000Z",
+            "created_by": {
+                "object": "user",
+                "id": "e61e9f21-5fd8-4350-b0a2-f934ab2ae3f2"
+            },
+            "last_edited_by": {
+                "object": "user",
+                "id": "e61e9f21-5fd8-4350-b0a2-f934ab2ae3f2"
+            },
+            "cover": null,
+            "icon": null,
+            "parent": {
+                "type": "database_id",
+                "database_id": "458c081d-5515-47e4-96c1-a0bee74763df"
+            },
+            "archived": false,
+            "properties": {
+                "Status": {
+                    "id": "uaEs",
+                    "type": "status",
+                    "status": {
+                        "id": "0c0055dc-9a53-475a-ad41-55a768435127",
+                        "name": "In progress",
+                        "color": "blue"
+                    }
+                },
+                "Objective": {
+                    "id": "title",
+                    "type": "title",
+                    "title": [
+                        {
+                            "type": "text",
+                            "text": {
+                                "content": "Write an email",
+                                "link": null
+                            },
+                            "annotations": {
+                                "bold": false,
+                                "italic": false,
+                                "strikethrough": false,
+                                "underline": false,
+                                "code": false,
+                                "color": "default"
+                            },
+                            "plain_text": "Write an email",
+                            "href": null
+                        }
+                    ]
+                }
+            },
+            "url": "https://www.notion.so/Write-an-email-62850f68affc4d709307987c3f3ffbee",
+            "public_url": null
+        }
+    ],
+    "next_cursor": null,
+    "has_more": false,
+    "type": "page",
+    "page": {}
+}
