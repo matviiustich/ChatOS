@@ -1,6 +1,7 @@
 import json
 import openai
 from Models.Notion import Notion
+from datetime import datetime
 
 
 class System:
@@ -9,11 +10,15 @@ class System:
         with open("src/prompt.txt", "r") as prompt, open("keys/OPENAI_API_KEY.txt", "r") as OPENAI_API_KEY:
             self.memory = [
                 {"role": "system",
-                 "content": "You are a helpful task manager who helps set the user’s to-do by setting the right and clear objectives. You keep all created to-dos up to date by updating them when the user acts on objectives"}]
+                 "content": "You are a helpful task manager who helps set the user’s to-do by setting the right and clear objectives. You keep all created to-dos up to date by updating them when the user acts on objectives. You don't create todos with the similar objectives"}]
             openai.api_key = OPENAI_API_KEY.readline()
         self.memory.append(
             {"role": "system",
              "content": f"Existing todos are: {self.notion.get_todos()}"}
+        )
+        self.memory.append(
+            {"role": "system",
+             "content": f"Today's date is {datetime.today().strftime('%Y-%m-%d')}"}
         )
         self.functions = [
             {
@@ -25,39 +30,60 @@ class System:
                         "objectives": {
                             "type": "array",
                             "items": {
-                                "type": "string",
-                                "description": "Short name for a to-do",
+                                "type": "object",
+                                "properties": {
+                                    "todo_name": {
+                                        "type": "string",
+                                        "description": "Short name for a to-do"
+                                    },
+                                    "start_time": {
+                                        "type": "string",
+                                        "format": "date-time",
+                                        "description": "Start time of the to-do"
+                                    },
+                                    "end_time": {
+                                        "type": "string",
+                                        "format": "date-time",
+                                        "description": "End time of the to-do"
+                                    }
+                                },
+                                "required": ["todo_name", "start_time", "end_time"]
                             },
-                        },
+                            "description": "Array of tuples in format (todo_name, start_time, end_time)"
+                        }
                     },
-                    "required": ["objectives"],
-                },
+                    "required": ["objectives"]
+                }
             },
+
             {
                 "name": "update_todo",
                 "description": "Update one or multiple to-dos",
                 "parameters": {
                     "type": "object",
                     "properties": {
-                        "todo_name": {
+                        "todos": {
                             "type": "array",
                             "items": {
-                                "type": "string",
-                                "description": f"Name of an existing to-do",
+                                "type": "object",
+                                "properties": {
+                                    "todo_name": {
+                                        "type": "string",
+                                        "description": "Name of an existing to-do",
+                                    },
+                                    "todo_status": {
+                                        "type": "string",
+                                        "enum": ["Not started", "In progress", "Done"],
+                                    }
+                                },
+                                "required": ["todo_name", "todo_status"]
                             },
-                        },
-                        "todo_status": {
-                            "type": "array",
-                            "items": {
-                                "type": "string",
-                                "enum": ["Not started", "In progress", "Done"],
-                            },
-                        },
+                            "description": "Array of tuples in format (todo_name, todo_status)"
+                        }
                     },
-                    "required": ["objectives"],
-                },
-            },
-
+                    "required": ["todos"],
+                }
+            }
         ]
 
     def create_completion(self):
@@ -65,7 +91,8 @@ class System:
                                                 function_call="auto")
 
         response_message = response["choices"][0]["message"]
-        print(response_message["content"])
+        if response_message["content"] != None:
+            print(response_message["content"])
         self.memory.append(response_message)
         if "function_call" in response_message:
             available_functions = {

@@ -1,4 +1,12 @@
 import requests, json
+from datetime import datetime, timezone
+from dateutil.parser import parse
+
+
+def parse_date_string(date_string):
+    parsed_date = parse(date_string)
+    iso_date = parsed_date.isoformat()
+    return iso_date
 
 
 class Notion:
@@ -21,8 +29,6 @@ class Notion:
         # print(f"get_todos status code: {res.status_code}")
         data = res.json()
 
-        # with open('db.json', 'w', encoding='utf8') as f:
-        #     json.dump(data, f, ensure_ascii=False, indent=4)
         result = data["results"]
         todos = []
         for todo in result:
@@ -36,27 +42,34 @@ class Notion:
                 todos.append(objective)
         return todos
 
-    def create_todo(self, objectives: [str]):
+    def create_todo(self, objectives):
         status_code = 0
         for objective in objectives:
+            objective_name = objective["todo_name"]
+            start_time = parse_date_string(objective["start_time"])
+            end_time = parse_date_string(objective["end_time"])
             create_url = "https://api.notion.com/v1/pages"
             data = {
-                "Objective": {"title": [{"text": {"content": objective}}]},
-                "Status": {"status": {"name": "Not started"}}
+                "Objective": {"title": [{"text": {"content": objective_name}}]},
+                "Status": {"status": {"name": "Not started"}},
+                "Date": {"date": {"start": start_time, "end": end_time}}
             }
             payload = {"parent": {"database_id": self.database_id}, "properties": data}
 
             res = requests.post(create_url, headers=self.headers, json=payload)
             status_code = res.status_code
             # print(f"create_todo status code: {res.status_code}")
+            # print(f"create_todo {res}")
         if status_code == 200:
             return json.dumps("Success")
         else:
             return json.dumps("An error occurred")
 
-    def update_todo(self, todo_name: [str], todo_status: [str]):
+    def update_todo(self, todos):
         status_code = 0
-        for name, status in zip(todo_name, todo_status):
+        for todo_tuple in todos:
+            name = todo_tuple["todo_name"]
+            status = todo_tuple["todo_status"]
             for todo in self.get_todos(include_id=True):
                 if todo[0] == name:
                     url = f"https://api.notion.com/v1/pages/{todo[1]}"
