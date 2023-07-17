@@ -10,7 +10,7 @@ class System:
         with open("src/prompt.txt", "r") as prompt, open("keys/OPENAI_API_KEY.txt", "r") as OPENAI_API_KEY:
             self.memory = [
                 {"role": "system",
-                 "content": "You are a helpful task manager who helps set the user’s to-do by setting the right and clear objectives. You keep all created to-dos up to date by updating them when the user acts on objectives. You don't create todos with the similar objectives"}]
+                 "content": "".join(prompt.readlines())}]
             openai.api_key = OPENAI_API_KEY.readline()
         self.memory.append(
             {"role": "system",

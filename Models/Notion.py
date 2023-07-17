@@ -21,6 +21,17 @@ class Notion:
             "Notion-Version": "2022-06-28",
         }
 
+    def create_project(self, link: str):
+        page_id = link[link.rfind('?') - 32:link.rfind('?')]
+        url = "https://api.notion.com/v1/databases/"
+        payload = {"parent": {"type": "page_id", "page_id": page_id},
+                   "title": [{"type": "text", "text": {"content": "To-Do database"}}],
+                   "properties": {"Objective": {"title": {}},
+                                  "Completed": {"checkbox": {}},
+                                  "Date": {"type": "date", "date": {}}}}
+        res = requests.post(url=url, json=payload, headers=self.headers)
+        print(res.json())
+
     def get_todos(self, include_id=False):
         url = f"https://api.notion.com/v1/databases/{self.database_id}/query"
 
@@ -28,7 +39,8 @@ class Notion:
         res = requests.post(url, json=payload, headers=self.headers)
         # print(f"get_todos status code: {res.status_code}")
         data = res.json()
-
+        with open("db.json", "a") as f:
+            f.write(json.dumps(data, indent=4))
         result = data["results"]
         todos = []
         for todo in result:
