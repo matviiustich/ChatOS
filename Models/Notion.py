@@ -2,8 +2,11 @@ import json
 import requests
 from dateutil.parser import parse
 import tzlocal
+from datetime import datetime, timedelta
 import pytz
 
+def parse_datetime_string(dt_str):
+    return datetime.strptime(dt_str, "%H:%M")
 
 def parse_date_string(date_string):
     parsed_date = parse(date_string)
@@ -71,7 +74,6 @@ class Notion:
                 f.write(json.dumps(data, indent=4))
             result = data["results"]
             todos = []
-            # print(result)
             for todo in result:
                 todo_id = todo["id"]
                 todo_status = todo["properties"]["Completed"]["checkbox"]
@@ -85,30 +87,45 @@ class Notion:
     def create_todo(self, objectives):
         status_code = 0
         for objective in objectives:
+            objective_days = objective["days"]
             objective_name = objective["todo_name"]
-            start_time = parse_date_string(objective["start_time"])
-            end_time = parse_date_string(objective["end_time"])
-            print(start_time, end_time)
             description = objective["description"]
-            create_url = "https://api.notion.com/v1/pages"
-            data = {
-                "Objective": {"title": [{"text": {"content": objective_name}}]},
-                "Completed": {"checkbox": False},
-                "Date": {"date": {"start": start_time, "end": end_time, "time_zone": str(tzlocal.get_localzone_name())}},
-                "Description": {"rich_text": [
-                            {
-                                "type": "text",
-                                "text": {
-                                    "content": description
-                                }
-                            }
-                        ]}
-            }
-            payload = {"parent": {"database_id": self.database_id}, "properties": data}
+            start_time = parse_datetime_string(objective["start_time"])
+            end_time = parse_datetime_string(objective["end_time"])
 
-            res = requests.post(create_url, headers=self.headers, json=payload)
-            # print(res.json())
-            status_code = res.status_code
+            for day in objective_days:
+                # Find the date for the upcoming day (next occurrence)
+                current_day = datetime.now()
+                while current_day.strftime("%A") != day:
+                    current_day += timedelta(days=1)
+
+                # Set the start and end datetime for the todo
+                start_datetime = current_day.replace(hour=start_time.hour, minute=start_time.minute)
+                end_datetime = current_day.replace(hour=end_time.hour, minute=end_time.minute)
+
+                create_url = "https://api.notion.com/v1/pages"
+                data = {
+                    "Objective": {"title": [{"text": {"content": objective_name}}]},
+                    "Completed": {"checkbox": False},
+                    "Date": {
+                        "date": {
+                            "start": start_datetime.isoformat(),
+                            "end": end_datetime.isoformat(),
+                            "time_zone": str(tzlocal.get_localzone_name())
+                        }
+                    },
+                    "Description": {
+                        "rich_text": [{
+                            "type": "text",
+                            "text": {"content": description}
+                        }]
+                    }
+                }
+                payload = {"parent": {"database_id": self.database_id}, "properties": data}
+
+                res = requests.post(create_url, headers=self.headers, json=payload)
+                status_code = res.status_code
+
         if status_code == 200:
             return json.dumps("Success")
         else:

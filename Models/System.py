@@ -2,6 +2,7 @@ import json
 import openai
 from Models.Notion import Notion
 from datetime import datetime
+import time
 
 # Memory structure:
 # memory[0] = prompt
@@ -14,7 +15,7 @@ class System:
         self.notion = Notion()
         self.memory = [{"role": "system", "content": ""} for _ in range(3)]
         self.memory[1]["content"] = self.notion.get_todos()
-        self.memory[2]["content"] = f"Today's date is {datetime.now().isoformat()}"
+        self.memory[2]["content"] = f"Today is: {time.ctime()}"
         with open("src/prompt.txt", "r") as prompt, open("keys/OPENAI_API_KEY.txt", "r") as OPENAI_API_KEY:
             self.memory[0]["content"] = prompt.readline()
             openai.api_key = OPENAI_API_KEY.readline()
@@ -56,21 +57,28 @@ class System:
                                     },
                                     "start_time": {
                                         "type": "string",
-                                        "format": "date",
-                                        "description": "Start time of the to-do"
+                                        "format": "date-time",
+                                        "description": "Start time of the to-do in the format: %H:%M"
                                     },
                                     "end_time": {
                                         "type": "string",
-                                        "format": "date",
-                                        "description": "End time of the to-do"
+                                        "format": "date-time",
+                                        "description": "End time of the to-do in the format: %H:%M"
                                     },
                                     "description": {
                                         "type": "string",
                                         "description": "If the todo requires several steps to complete, then OS (NOT "
                                                        "THE USER) should make a brief description of the steps "
+                                    },
+                                    "days": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "string",
+                                            "description": "The day for which the todo will be created"
+                                        }
                                     }
                                 },
-                                "required": ["todo_name", "start_time", "end_time"]
+                                "required": ["todo_name", "start_time", "end_time", "days"]
                             },
                             "description": "Array of tuples in format (todo_name, start_time, end_time)"
                         }
@@ -110,13 +118,12 @@ class System:
         ]
 
     def create_completion(self):
-        self.memory[2]["content"] = f"Today's date is {datetime.now().isoformat()}"
+        self.memory[2]["content"] = f"Today is: {time.ctime()}"
         response = openai.ChatCompletion.create(model="gpt-4", messages=self.memory, functions=self.functions,
                                                 function_call="auto")
 
         response_message = response["choices"][0]["message"]
-        print(response)
-        if response_message["content"] != None:
+        if response_message["content"] is not None:
             print(response_message["content"])
         self.memory.append(response_message)
         if "function_call" in response_message:
