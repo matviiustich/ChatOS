@@ -14,24 +14,26 @@ class System:
         self.notion = Notion()
         self.memory = [{"role": "system", "content": ""} for _ in range(3)]
         self.memory[1]["content"] = self.notion.get_todos()
-        self.memory[2]["content"] = f"Today's date is {datetime.now()}"
+        self.memory[2]["content"] = f"Today's date is {datetime.now().isoformat()}"
         with open("src/prompt.txt", "r") as prompt, open("keys/OPENAI_API_KEY.txt", "r") as OPENAI_API_KEY:
             self.memory[0]["content"] = prompt.readline()
             openai.api_key = OPENAI_API_KEY.readline()
         self.functions = [
             {
                 "name": "create_project",
-                "description": "Initialise the project",
+                "description": "Initialises a task management project",
                 "parameters": {
                     "type": "object",
                     "properties": {
                         "link": {
                             "type": "string",
-                            "description": "Link of the notion workspace where the user wants to initialise the project"
+                            "description": "Link of the notion workspace provided by the user where the user wants to "
+                                           "initialise the project "
                         },
                         "description": {
                             "type": "string",
-                            "description": "Generate the description of the project for the user, so he will understand the purpose of it"
+                            "description": "OS (NOT THE USER) should generate a description, so the user will "
+                                           "understand the purpose of the project "
                         }
                     },
                     "required": ["link", "description"]
@@ -39,7 +41,7 @@ class System:
             },
             {
                 "name": "create_todo",
-                "description": "Create one or multiple to-dos",
+                "description": "Create todos",
                 "parameters": {
                     "type": "object",
                     "properties": {
@@ -54,17 +56,18 @@ class System:
                                     },
                                     "start_time": {
                                         "type": "string",
-                                        "format": "date-time",
+                                        "format": "date",
                                         "description": "Start time of the to-do"
                                     },
                                     "end_time": {
                                         "type": "string",
-                                        "format": "date-time",
+                                        "format": "date",
                                         "description": "End time of the to-do"
                                     },
                                     "description": {
                                         "type": "string",
-                                        "description": "Briefly describe what the user needs to do to complete the todo"
+                                        "description": "If the todo requires several steps to complete, then OS (NOT "
+                                                       "THE USER) should make a brief description of the steps "
                                     }
                                 },
                                 "required": ["todo_name", "start_time", "end_time"]
@@ -78,7 +81,7 @@ class System:
 
             {
                 "name": "update_todo",
-                "description": "Update one or multiple to-dos",
+                "description": "Update todos",
                 "parameters": {
                     "type": "object",
                     "properties": {
@@ -107,11 +110,12 @@ class System:
         ]
 
     def create_completion(self):
-        self.memory[2]["content"] = f"Today's date is {datetime.now()}"
+        self.memory[2]["content"] = f"Today's date is {datetime.now().isoformat()}"
         response = openai.ChatCompletion.create(model="gpt-4", messages=self.memory, functions=self.functions,
                                                 function_call="auto")
 
         response_message = response["choices"][0]["message"]
+        print(response)
         if response_message["content"] != None:
             print(response_message["content"])
         self.memory.append(response_message)

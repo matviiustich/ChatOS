@@ -1,6 +1,8 @@
 import json
 import requests
 from dateutil.parser import parse
+import tzlocal
+import pytz
 
 
 def parse_date_string(date_string):
@@ -55,6 +57,7 @@ class Notion:
             res = requests.post(url=database_url, json=payload, headers=self.headers)
             with open("src/database.txt", 'a') as database_file:
                 database_file.write(res.json()["id"])
+                self.database_id = res.json()["id"]
         return json.dumps("Success")
 
     def get_todos(self) -> str:
@@ -74,7 +77,8 @@ class Notion:
                 todo_status = todo["properties"]["Completed"]["checkbox"]
                 todo_objective = todo["properties"]["Objective"]["title"][0]["text"]["content"]
                 todos.append(f"Todo: {todo_objective}, ID: {todo_id}, status: {todo_status}")
-            return ".".join(todos)
+            return_data = ".".join(todos)
+            return f"The project was already initialised. {return_data}"
         else:
             return "User haven’t initialised the project"
 
@@ -84,12 +88,13 @@ class Notion:
             objective_name = objective["todo_name"]
             start_time = parse_date_string(objective["start_time"])
             end_time = parse_date_string(objective["end_time"])
+            print(start_time, end_time)
             description = objective["description"]
             create_url = "https://api.notion.com/v1/pages"
             data = {
                 "Objective": {"title": [{"text": {"content": objective_name}}]},
                 "Completed": {"checkbox": False},
-                "Date": {"date": {"start": start_time, "end": end_time}},
+                "Date": {"date": {"start": start_time, "end": end_time, "time_zone": str(tzlocal.get_localzone_name())}},
                 "Description": {"rich_text": [
                             {
                                 "type": "text",
